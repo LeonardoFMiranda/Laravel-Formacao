@@ -18,5 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/series', [SeriesController::class, 'index']);
-Route::get('/series/adicionar-series', [SeriesController::class, 'create']);
+Route::controller(SeriesController::class)->group(function () {
+    Route::get('/series', 'index')->name('series.index');
+    Route::get('/series/adicionar-series', 'create')->name('series.create');
+    Route::post('/series/salvar', 'store')->name('series.store');
+    Route::post('/series/excluir/{id}', 'destroy')->name('series.destroy');
+});
+
+

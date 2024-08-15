@@ -1,5 +1,5 @@
 <x-layout title="Adicionar série">
-    <form method="post">
+    <form action="{{route('series.store')}}" method="post">
         @csrf
         <div class="mb-3">
             <label for="nome" class="form-label">Nome da série:</label>
