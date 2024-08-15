@@ -17,6 +17,11 @@ class SeriesController extends Controller
             'Agents of SHIELD'
         ];
 
-        return view('listar-series', compact('series'));
+        return view('series.listar-series')->with('series', $series);
+    }
+
+    public function create()
+    {
+        return view('series.adicionar-series');
     }
 }
